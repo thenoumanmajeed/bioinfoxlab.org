@@ -90,7 +90,8 @@ document.documentElement.classList.add('js');
       li.addEventListener('pointerenter',function(){peek.style.backgroundImage='url('+li.getAttribute('data-peek')+')';peek.classList.add('on');on=true;});
       li.addEventListener('pointerleave',function(){peek.classList.remove('on');on=false;});
     });
-    window.addEventListener('pointermove',function(e){qx=e.clientX+190;qy=e.clientY;},{passive:true});
+    var ox=parseFloat(peek.getAttribute('data-ox'))||190;
+    window.addEventListener('pointermove',function(e){qx=e.clientX+ox;qy=e.clientY;},{passive:true});
     (function loop(){px+=(qx-px)*0.14;py+=(qy-py)*0.14;peek.style.left=px+'px';peek.style.top=py+'px';requestAnimationFrame(loop);})();
   }
 

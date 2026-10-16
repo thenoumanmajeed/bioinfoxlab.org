@@ -27,10 +27,10 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 | services.html | 8 service lines as a hover-preview index (rows link to contact.html?service=...), how a project runs, deliverables, MD teaser |
 | molecular-dynamics.html | 23 graphs from a 100 ns GROMACS run (assets/md/), run settings, key numbers |
 | training.html | Figures, latest training (Cohort 3), previous trainings |
-| team.html | Founder lead + Shoaib Siddique, Mohsin Raza, Zeeshan Ghani |
+| team.html | Dark roster with hover portraits, then a large profile per person (founder, Shoaib Siddique, Mohsin Raza, Zeeshan Ghani), figures band |
 | research.html | 4 featured papers, journals, link to founder.html#publications |
 | contact.html | Email directory + project brief form (opens the visitor's email app; ?service= pre-selects the service) |
-| founder.html | Full profile of the founder: roles, experience, education, awards, 32 publications with search, NCBI records, talks, skills, courses |
+| founder.html | Full profile of the founder: about, awards, 32 publications with search, NCBI records, talks, skills, courses (no degrees, no work history) |
 | credits.html | Sources and licences for every 3D structure, the graphs and the typeface |
 | 404.html | Not-found page |
 | assets/css/style.css | Shared styles; assets/css/founder.css only for founder.html |
@@ -52,7 +52,8 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - Legal name: BioInfoX (SMC-Private) Limited. Tagline: Empowering Bioinformatics.
 - One of Pakistan's pioneering companies in bioinformatics; the first registered bioinformatics company based in Lahore.
 - Working since 2022, serving researchers worldwide. Trainings are online, for participants in Pakistan.
-- 2,000+ students trained, 200 interns.
+- More than 1,000 projects completed for researchers worldwide. We help researchers publish their research papers.
+- 2,000+ students trained ("thousands of students"), 200 interns.
 - Location shown on site: Lahore, Pakistan (brand kit). Owner's office is in Sheikhupura — confirm which to show.
 - Emails: info@bioinfoxlab.org (general), simulations@bioinfoxlab.org (simulation projects),
   trainings@bioinfoxlab.org (trainings), director@bioinfoxlab.org (founder). Phone/WhatsApp: +92 309 2529763 (only this number).
@@ -70,8 +71,9 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 
 ## Founder (how he must be presented)
 - Muhammad Nouman Majeed — **Founder and Chief Executive Officer**, leads BioInfoX. Present him as **PhD Scholar**.
-- **Do not mention MS Biotechnology anywhere.** M.Sc. Biotechnology (University of Okara, Gold Medalist) is fine.
-- Research Associate, The University of Lahore (from Apr 2026); Molecular Dynamics Researcher, MBBL Lab, University of Central Punjab (from Jul 2024).
+- **Do not list his degrees or work experience anywhere** (no M.Sc./B.Sc., no Gold Medal for a degree, no past jobs).
+- He has **left** MBBL Lab (University of Central Punjab) and The University of Lahore: never show them as his affiliations.
+  Event venues in his talks list and the MBBL strain names of his NCBI genomes are fine.
 - 32 peer-reviewed articles, 143 citations, h-index 8, i10-index 7 (Google Scholar). Best Research Student Award 2024 (University of Okara).
 - Contact: director@bioinfoxlab.org, +92 309 2529763, LinkedIn https://www.linkedin.com/in/thenoumanmajeed/
 - Photo: assets/img/muhammad-nouman-majeed.webp (black suit, maroon tie, background removed).
@@ -81,7 +83,7 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - Shoaib Siddique, PhD — Head of Computational Physics and Materials Science. PhD Physics, National Yunlin University of Science and Technology (YunTech), Taiwan. Photocatalysts, perovskite solar cells, supercapacitor electrodes, SERS. Scholar: https://scholar.google.com/citations?user=LjLHAoMAAAAJ&hl=en
 - Mohsin Raza — Scientific Research Advisor. Doctoral Researcher in Physics, Universitat de Barcelona (from Aug 2026); previously research assistant, Sejong University, South Korea. LinkedIn: https://www.linkedin.com/in/mohsin-raza-researcher/
 - Zeeshan Ghani — Legal Advisor, Advocate High Court.
-- Photos: assets/img/shoaib-siddique.webp (navy suit, glasses) and assets/img/mohsin-raza.webp (no glasses; source is only 237×254, ask for a larger one). Zeeshan still shows initials until his photo arrives.
+- Photos: assets/img/shoaib-siddique.webp (navy suit, glasses) and assets/img/mohsin-raza.webp (no glasses; source is only 237×254, ask for a larger one). assets/img/zeeshan-ghani.webp (Zeeshan, office photo, small source).
 
 ## Trainings
 Latest (shown as the only current offer): **Bioinformatics Training Program, Cohort 3**
