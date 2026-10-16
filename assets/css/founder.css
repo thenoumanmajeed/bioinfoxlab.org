@@ -87,7 +87,7 @@
 .table-wrap{overflow-x:auto;border-top:1px solid var(--ink);margin-top:20px}
 table{border-collapse:collapse;width:100%;min-width:780px;font-size:14.5px}
 th,td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
+th{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
 td{color:var(--ink)}
 td a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--red);white-space:nowrap}
 td a:hover{color:var(--red)}
@@ -115,7 +115,7 @@ td .mono{white-space:nowrap;font-variant-numeric:tabular-nums}
 .refs li+li{padding-left:28px}
 .refs li:last-child{border-right:0}
 @media (max-width:900px){.refs li,.refs li+li{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}}
-.refs em{font-style:normal;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.refs em{font-style:normal;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 .refs b{font-size:18px;font-weight:700;color:var(--ink)}
 .refs span{font-size:15px}
 .refs-note{margin-top:18px;font-size:14px;color:var(--mute)}

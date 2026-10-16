@@ -12,30 +12,41 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
   - Magenta #E8189B and Purple #7B2FF7 exist **only inside the gradient on the X of the logo**. Never use them as fills or gradient text.
   - Use the standard logo on light backgrounds and the "for_dark_bg" logo on dark ones. Never recolour, stretch or add effects.
   - Full legal name on legal/financial text; "BioInfoX" alone everywhere else.
-- Design direction the owner approved: light, editorial, "research institute" look. Narrow label column + wide content,
-  hairline rules, square buttons, red used sparingly. Avoid the generic AI look: no particle backgrounds, no gradient text,
-  no pill tags, no emoji, no monospace eyebrow labels, no centred everything.
+- Design direction (updated by the owner on 16 Oct 2026): an immersive, award-level site in the spirit of lusion.co and resn.co.nz,
+  not a typical website. Dark ink headers and chapters with a live WebGL scene of real molecular structures; content pages keep a
+  light body for reading. Square buttons, hairline rules, red used for actions and numbers, Highlight #FFC72C only as a small
+  specimen marker. Still no particle-noise backgrounds, gradient text, pill tags, emoji or monospace labels. Every 3D scene carries
+  an honest "specimen" caption (what the structure is, and whether it is real data or a built model).
 - Every menu item must open its **own page** (no single-page scrolling navigation).
 
 ## Files
 | File | Content |
 |---|---|
-| index.html | Home: hero, figures, services preview, latest training band, About the founder, CTA |
+| index.html | Home: loader, fixed WebGL stage, hero, 5 service chapters that morph the scene, MD graph reel, founder, final mark chapter |
 | about.html | Company story, company facts, figures, About the founder |
-| services.html | 8 service lines, how a project runs, deliverables |
+| services.html | 8 service lines as a hover-preview index (rows link to contact.html?service=...), how a project runs, deliverables, MD teaser |
+| molecular-dynamics.html | 23 graphs from a 100 ns GROMACS run (assets/md/), run settings, key numbers |
 | training.html | Figures, latest training (Cohort 3), previous trainings |
 | team.html | Founder lead + Shoaib Siddique, Mohsin Raza, Zeeshan Ghani |
 | research.html | 4 featured papers, journals, link to founder.html#publications |
-| contact.html | Email directory + project brief form (opens the visitor's email app) |
+| contact.html | Email directory + project brief form (opens the visitor's email app; ?service= pre-selects the service) |
 | founder.html | Full profile of the founder: roles, experience, education, awards, 32 publications with search, NCBI records, talks, skills, courses, references |
+| credits.html | Sources and licences for every 3D structure, the graphs and the typeface |
 | 404.html | Not-found page |
 | assets/css/style.css | Shared styles; assets/css/founder.css only for founder.html |
-| assets/js/main.js | Mobile menu, copy buttons, brief composer (contact), publication search (founder) |
+| assets/js/main.js | Menu overlay, nav state, Lahore clock, reveals, cursor, magnetic buttons, service peek, MD reel, loader, copy buttons, brief composer, publication search |
+| assets/js/matter.js | WebGL scene: 1,656 points that morph between protein (real AdK open↔closed trajectory), gold nanoparticle, B-DNA, network, DPPC vesicle and the BioInfoX mark |
+| assets/data/matter.bin | Point data for the scene, built by tools/build_matter.py from MDAnalysis test data (LGPL) and exact geometry |
+| assets/img/matter/ | Still renders of each scene state (service previews and no-WebGL fallback) |
+| assets/md/ | MD graphs: png/ and pdf/ originals, -900/-1600 .webp web copies, md-analysis-report.html (not linked) |
 | assets/img/ | Logo SVGs, founder photo (webp), favicons, og-image.jpg (1200×630 sharing image) |
-| favicon.ico, site.webmanifest, robots.txt, sitemap.xml, .htaccess | Launch files. .htaccess forces https://www and sets the 404 page |
+| tools/build_matter.py | Rebuilds assets/data/matter.bin (not published: excluded in _config.yml) |
+| favicon.ico, site.webmanifest, robots.txt, sitemap.xml, .htaccess, _config.yml | Launch files. .htaccess forces https://www and sets the 404 page (Hostinger only) |
 | README.txt | Plain-language upload instructions (cPanel/Hostinger, Netlify, GitHub Pages) |
 
-Nav, footer and <head> are repeated in every page: change them in **all** HTML files.
+Nav (with the full-screen menu), footer and <head> are repeated in every page: change them in **all** HTML files.
+Inner pages have a dark `.page-head` with `<canvas class="matter" data-matter="protein|gold|dna|network|vesicle|mark">` and a `.specimen` caption.
+Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2d (empty), 11_clusters (0–0.1 ns axis), 09_pca_residue_contribution (stray line).
 
 ## Company facts (approved by the owner)
 - Legal name: BioInfoX (SMC-Private) Limited. Tagline: Empowering Bioinformatics.
