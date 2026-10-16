@@ -316,3 +316,44 @@ ul,ol{padding:0;list-style:none}
 /* 404 */
 .nf{padding-block:140px;text-align:left}
 .nf h1{font-size:clamp(3rem,8vw,6rem);letter-spacing:-0.05em}
+
+/* molecular dynamics sample output */
+.md-key{margin-top:56px}
+.md-key strong{white-space:nowrap}
+.md-key small{font-size:.5em;font-weight:700;letter-spacing:0;margin-left:2px}
+.md-toc{margin-top:56px}
+.md-toc p{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.md-toc ol{margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;border-top:1px solid var(--ink)}
+@media (max-width:640px){.md-toc ol{grid-template-columns:minmax(0,1fr)}}
+.md-toc a{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;color:var(--ink);transition:color .15s}
+.md-toc a:hover{color:var(--red)}
+.md-toc .n{font-size:14px;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+.md-group{padding-block:88px 96px;border-top:1px solid var(--line)}
+@media (max-width:760px){.md-group{padding-block:56px 64px}}
+.md-label{align-self:start}
+.md-label .n{display:block;width:max-content;font-size:15px;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums;border-top:2px solid var(--red);padding-top:14px}
+.md-label h2{font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-0.025em;margin-top:16px}
+.md-label p{margin-top:12px;font-size:16px;max-width:34ch}
+.md-figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px;align-items:start}
+.md-fig{grid-column:1 / -1;margin:0}
+.md-fig.half{grid-column:auto}
+@media (max-width:760px){.md-figs{gap:44px}.md-fig.half{grid-column:1 / -1}}
+.md-fig > a{display:block;background:var(--paper);padding:16px;transition:background .15s}
+.md-fig > a:hover{background:#E9EBEF}
+.md-fig > a img{background:var(--white)}
+.md-fig img{width:100%}
+.md-fig figcaption{margin-top:16px;font-size:15.5px;line-height:1.6;color:var(--slate);max-width:72ch;text-wrap:pretty}
+.md-fig .fn{display:block;margin-bottom:4px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--red);font-variant-numeric:tabular-nums}
+.md-fig figcaption b{color:var(--ink);font-weight:700}
+.md-fig figcaption a{margin-left:4px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red)}
+.md-fig figcaption a:hover{color:var(--red)}
+.md-note{margin-top:24px;font-size:15px;max-width:62ch}
+.md-teaser{margin-top:48px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:center;padding-top:40px;border-top:1px solid var(--ink)}
+@media (max-width:900px){.md-teaser{grid-template-columns:minmax(0,1fr);gap:28px}}
+.md-teaser h3{font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:-0.025em;margin-top:18px}
+.md-teaser p{margin-top:12px;font-size:15.5px;max-width:46ch}
+.md-teaser .more{margin-top:24px}
+.md-teaser-img{display:block;padding:16px;background:var(--white);transition:background .15s}
+.md-teaser-img:hover{background:#E9EBEF}
+.svc-list p a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--red);white-space:nowrap}
+.svc-list p a:hover{color:var(--red)}
