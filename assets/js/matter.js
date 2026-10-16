@@ -117,7 +117,13 @@
   /* opts: canvas, url, chapters (NodeList with data-matter, data-mx, data-my, data-ms) or state, onReady */
   function Scene(opts) {
     var canvas = opts.canvas;
-    var gl = canvas.getContext('webgl', { antialias: true, alpha: false, powerPreference: 'high-performance' });
+    /* quality: phones render at most 1.5x, weak devices start at 75 %, and the scale adapts to the frame time */
+    var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    var lowHint = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
+    var maxDpr = coarse ? 1.5 : 2, baseQ = lowHint ? 0.75 : 1, q = baseQ, upgrades = 0, halfRate = false, odd = false;
+    var ema = 16, lastNow = 0, nFrames = 0, linesOn = true;
+    var gl = canvas.getContext('webgl', { antialias: (window.devicePixelRatio || 1) < 1.5, alpha: false, depth: true,
+      powerPreference: coarse ? 'default' : 'high-performance' });
     if (!gl) { document.documentElement.classList.add('no-gl'); return; }
     var self = this, D, N, seeds, delay, scatter, posBuf, colBuf, seedBuf, edgeBufs = [], pos, colr;
     var prog, lprog, visible = true, running = false, t0 = performance.now();
@@ -129,10 +135,28 @@
       var k = NAMES.indexOf(name); return k < 0 ? 0 : k;   // 0 = protein trajectory
     }
     function resize() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var w = canvas.clientWidth, h = canvas.clientHeight;
-      canvas.width = Math.max(1, Math.round(w * dpr)); canvas.height = Math.max(1, Math.round(h * dpr));
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      var dpr = Math.min(window.devicePixelRatio || 1, maxDpr) * q;
+      var w = Math.max(1, Math.round(canvas.clientWidth * dpr)), h = Math.max(1, Math.round(canvas.clientHeight * dpr));
+      if (w === canvas.width && h === canvas.height) return;   // resizing a canvas clears it, so only when needed
+      canvas.width = w; canvas.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+
+    /* page layout, cached: chapter anchors and the solid sections that hide the stage */
+    var anchors = [], covers = [];
+    function layout() {
+      if (!chapters) return;
+      var y = window.scrollY, vh = window.innerHeight;
+      anchors = chapters.map(function (el) { var r = el.getBoundingClientRect(); return r.top + y + r.height / 2 - vh / 2; });
+      covers = Array.prototype.map.call(document.querySelectorAll('.solid, .foot'), function (el) {
+        var r = el.getBoundingClientRect(); return [r.top + y, r.bottom + y];
+      });
+    }
+    function covered() {
+      if (!chapters) return false;
+      var y = window.scrollY, b = y + window.innerHeight;
+      for (var i = 0; i < covers.length; i++) if (covers[i][0] <= y + 1 && covers[i][1] >= b - 1) return true;
+      return false;
     }
 
     function target() {
@@ -140,9 +164,8 @@
         var c = opts.config || {};
         return { a: stateIndex(opts.state), b: stateIndex(opts.state), t: 0, mx: c.mx || 0, my: c.my || 0, ms: c.ms || 1 };
       }
-      var vh = window.innerHeight, y = window.scrollY, anchors = chapters.map(function (el) {
-        var r = el.getBoundingClientRect(); return r.top + y + r.height / 2 - vh / 2;
-      });
+      var y = window.scrollY;
+      if (!anchors.length) layout();
       var k = 0;
       while (k < anchors.length - 1 && y >= anchors[k + 1]) k++;
       var a = chapters[k], b = chapters[Math.min(k + 1, chapters.length - 1)];
@@ -172,11 +195,23 @@
       return D.col[s];
     }
 
-    var bufA, bufB;
+    var bufA, bufB, posKey = '', colKey = '';
+    function adapt(now) {
+      var dt = lastNow ? now - lastNow : 16; lastNow = now;
+      if (dt > 250) return;                    // tab switch or pause: ignore
+      ema = ema * 0.92 + dt * 0.08;
+      if (++nFrames % (nFrames < 200 ? 15 : 45)) return;   // react fast at first, then settle
+      if (ema > 25 && q > 0.5) { q = Math.max(0.5, q * (ema > 45 ? 0.7 : 0.8)); resize(); }
+      else if (ema > 30 && q <= 0.5) { halfRate = true; linesOn = false; }
+      else if (ema < 14 && q < baseQ && upgrades < 2) { q = Math.min(baseQ, q * 1.15); upgrades++; resize(); }
+      if (q < 0.65) linesOn = false;
+    }
     function frame(now) {
       if (!running) return;
       requestAnimationFrame(frame);
-      if (!visible) return;
+      if (!visible || document.hidden) { lastNow = 0; return; }
+      if (halfRate && (odd = !odd)) return;    // very slow devices: steady 30 fps rather than an uneven 20
+      adapt(now);
       var time = (now - t0) / 1000;
       var tg = target();
       if (!smooth) smooth = tg;
@@ -184,18 +219,36 @@
       if (tg.a !== smooth.a || tg.b !== smooth.b) { smooth.a = tg.a; smooth.b = tg.b; smooth.t = tg.t; }
       smooth.t += (tg.t - smooth.t) * k * 1.4;
       smooth.mx += (tg.mx - smooth.mx) * k; smooth.my += (tg.my - smooth.my) * k; smooth.ms += (tg.ms - smooth.ms) * k;
-      var ca = shape(smooth.a, time, bufA), cb = smooth.a === smooth.b ? ca : shape(smooth.b, time, bufB);
-      var T = smooth.t;
-      for (var i = 0; i < N; i++) {
-        var ti = smooth.a === smooth.b ? 0 : ease(clamp(T * 1.5 - delay[i] * 0.5));
-        var sc = Math.sin(ti * Math.PI) * 0.55;
-        var j = i * 3, src = smooth.a === smooth.b ? bufA : null;
-        for (var c = 0; c < 3; c++) {
-          var a = bufA[j + c], b = src ? a : bufB[j + c];
-          pos[j + c] = a + (b - a) * ti + scatter[j + c] * sc;
-          var pa = PALETTE[ca[i]][c], pb = PALETTE[cb[i]][c];
-          colr[j + c] = pa + (pb - pa) * ti;
+      if (self.ready && covered()) { lastNow = 0; return; }   // a solid section hides the stage: draw nothing
+      var T = smooth.t, morph = smooth.a !== smooth.b && T > 0.0005 && T < 0.9995;
+      var key = smooth.a + ':' + smooth.b + ':' + (morph ? 'm' : T > 0.5 ? 'b' : 'a');
+      var protein = smooth.a === 0 || smooth.b === 0;
+      var ca, cb;
+      if (morph || protein || key !== posKey) {
+        ca = shape(smooth.a, time, bufA); cb = smooth.a === smooth.b ? ca : shape(smooth.b, time, bufB);
+        if (!morph) {
+          var src = T > 0.5 && smooth.a !== smooth.b ? bufB : bufA;
+          pos.set(src);
+        } else {
+          for (var i = 0; i < N; i++) {
+            var ti = ease(clamp(T * 1.5 - delay[i] * 0.5)), sc = Math.sin(ti * Math.PI) * 0.55, j = i * 3;
+            pos[j] = bufA[j] + (bufB[j] - bufA[j]) * ti + scatter[j] * sc;
+            pos[j + 1] = bufA[j + 1] + (bufB[j + 1] - bufA[j + 1]) * ti + scatter[j + 1] * sc;
+            pos[j + 2] = bufA[j + 2] + (bufB[j + 2] - bufA[j + 2]) * ti + scatter[j + 2] * sc;
+          }
         }
+        gl.bindBuffer(gl.ARRAY_BUFFER, posBuf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
+        posKey = morph || protein ? '' : key;
+      }
+      if (morph || key !== colKey) {
+        ca = D.col[smooth.a === 0 ? 0 : D.F - 1 + smooth.a]; cb = D.col[smooth.b === 0 ? 0 : D.F - 1 + smooth.b];
+        for (var n = 0; n < N; n++) {
+          var tn = morph ? ease(clamp(T * 1.5 - delay[n] * 0.5)) : (T > 0.5 && smooth.a !== smooth.b ? 1 : 0);
+          var PA = PALETTE[ca[n]], PB = PALETTE[cb[n]], m3 = n * 3;
+          colr[m3] = PA[0] + (PB[0] - PA[0]) * tn; colr[m3 + 1] = PA[1] + (PB[1] - PA[1]) * tn; colr[m3 + 2] = PA[2] + (PB[2] - PA[2]) * tn;
+        }
+        gl.bindBuffer(gl.ARRAY_BUFFER, colBuf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, colr);
+        colKey = morph ? '' : key;
       }
       mouse[0] += (mouseT[0] - mouse[0]) * 0.12; mouse[1] += (mouseT[1] - mouse[1]) * 0.12;
       rot[0] += (rotT[0] - rot[0]) * 0.05; rot[1] += (rotT[1] - rot[1]) * 0.05;
@@ -207,8 +260,6 @@
 
       gl.clearColor(BG[0], BG[1], BG[2], 1);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-      gl.bindBuffer(gl.ARRAY_BUFFER, posBuf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, pos);
-      gl.bindBuffer(gl.ARRAY_BUFFER, colBuf); gl.bufferSubData(gl.ARRAY_BUFFER, 0, colr);
       var aspect = canvas.width / canvas.height;
       var narrow = aspect < 0.9;
       var scale = narrow ? Math.min(0.9, smooth.ms * 1.12 * aspect) : smooth.ms * 0.9;
@@ -224,7 +275,7 @@
       gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(false);
       common(lprog);
       var la = smooth.a === smooth.b ? 1 : Math.pow(1 - ease(T), 4), lb = smooth.a === smooth.b ? 0 : Math.pow(ease(T), 4);
-      [[smooth.a, la], [smooth.b, lb]].forEach(function (pair) {
+      if (linesOn) [[smooth.a, la], [smooth.b, lb]].forEach(function (pair) {
         var e = edgeBufs[pair[0]]; if (!e || !e.n || pair[1] < 0.01) return;
         gl.uniform1f(lprog.u.uAlpha, pair[1] * (pair[0] === 0 ? 0.32 : 0.5));
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, e.b); gl.drawElements(gl.LINES, e.n, gl.UNSIGNED_SHORT, 0);
@@ -263,12 +314,15 @@
         edgeBufs.push({ b: b, n: e.length });
       }
       gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL);
-      resize();
+      resize(); layout();
       running = true; requestAnimationFrame(frame);
     }).catch(function () { document.documentElement.classList.add('no-gl'); });
 
-    window.addEventListener('resize', resize);
-    window.addEventListener('pointermove', function (e) {
+    var rz = 0;
+    window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { resize(); layout(); }, 120); });
+    window.addEventListener('load', layout);
+    if (chapters && 'ResizeObserver' in window) new ResizeObserver(function () { layout(); }).observe(document.body);
+    if (!coarse) window.addEventListener('pointermove', function (e) {
       if (e.pointerType === 'touch') return;
       var r = canvas.getBoundingClientRect();
       mouseT[0] = ((e.clientX - r.left) / r.width) * 2 - 1;

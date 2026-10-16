@@ -61,7 +61,13 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - WhatsApp button (.wa, bottom right) on every page: https://wa.me/923092529763
 - Owner's statement (home pledge, terms, FAQ): "We take full responsibility for every analysis we perform; world-class analysis that
   can be challenged anywhere." Interpreted on the site as: errors on our side are corrected and rerun at no charge.
-- No cookies, analytics or trackers, so there is no cookie banner. If analytics are ever added, add a consent banner and update cookies.html.
+- Google Analytics (G-FBK9JSM1T1) was added by the owner on 16 Oct 2026, plus Organization JSON-LD and a Google verification file.
+  privacy.html and cookies.html describe it (_ga cookies, no advertising). There is still no consent banner: changing the tag
+  (Consent Mode / banner) needs the owner's explicit go-ahead.
+- Montserrat is self-hosted (assets/fonts/, variable woff2, OFL). Do not go back to Google Fonts.
+- Performance: matter.js adapts its render scale to the frame time (phones max 1.5x DPR, weak devices start at 75 %),
+  skips drawing while a .solid section covers the stage and re-uploads data only when the shape changes. On touch screens the
+  grain is static and the nav has no backdrop blur. Long lower sections use content-visibility:auto.
 - Working since 2022, serving researchers worldwide. Trainings are online, for participants in Pakistan.
 - More than 1,000 projects completed for researchers worldwide. We help researchers publish their research papers.
 - 2,000+ students trained ("thousands of students"), 200 interns.

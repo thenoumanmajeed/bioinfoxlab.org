@@ -1,3 +1,8 @@
+/* Montserrat, self-hosted (SIL Open Font License, assets/fonts/OFL.txt) */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/montserrat-latin-wght-normal.woff2") format("woff2-variations"),url("../fonts/montserrat-latin-wght-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/montserrat-latin-ext-wght-normal.woff2") format("woff2-variations"),url("../fonts/montserrat-latin-ext-wght-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Montserrat';font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/montserrat-latin-wght-italic.woff2") format("woff2-variations"),url("../fonts/montserrat-latin-wght-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/montserrat-latin-ext-wght-italic.woff2") format("woff2-variations"),url("../fonts/montserrat-latin-ext-wght-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
   /* Brand kit: Brand Red for rules, numbers and actions; Bright Red only on dark; Highlight used as a rare specimen marker */
   --white:#FFFFFF;
@@ -687,3 +692,18 @@ html:not(.js) .loader{display:none}
 .pledge-grid p{margin-top:10px;font-size:15.5px;color:var(--on-ink-2);max-width:40ch}
 .pledge .more{margin-top:48px;color:var(--white);border-bottom-color:var(--bright)}
 .foot{padding-bottom:110px}
+
+/* ---------- performance: phones and slower devices ---------- */
+.stage,.page-head .matter{contain:strict}
+.nav,.menu,.wa,.cursor,.peek{will-change:auto}
+@media (hover:none),(pointer:coarse),(max-width:900px){
+  .grain{inset:0;animation:none;opacity:.04}
+  .nav.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(21,22,27,.96)}
+  .btn::before{transition-duration:.35s}
+  .js [data-reveal]{transform:translateY(28px)}
+}
+/* sections far down the page are not laid out or painted until they come near */
+.md-group,.profile,.lg-sec,.faq-item,#publications,#genomes,#talks,.tat{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.faq-item,.lg-sec{contain-intrinsic-size:auto 220px}
+.peek{transition:opacity .35s var(--ease)}
+@media (max-width:600px){.wa{height:48px}.wa .wa-i{width:48px;height:48px}.wa svg{width:22px;height:22px}}
