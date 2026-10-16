@@ -50,7 +50,13 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 
 ## Company facts (approved by the owner)
 - Legal name: BioInfoX (SMC-Private) Limited. Tagline: Empowering Bioinformatics.
-- One of Pakistan's pioneering companies in bioinformatics; the first registered bioinformatics company based in Lahore.
+- Wording: "one of the pioneering bioinformatics companies in Pakistan and the first based in Lahore". Never call it simply "a pioneering company".
+- SECP: incorporated 25 August 2026 under the Companies Act, 2017, company limited by shares, CUIN 0352412
+  (verify: https://leap.secp.gov.pk/#/verify-company-info/0352412). Show the facts only; never publish the certificate image. Working since 2022.
+- Typical turnaround (one standard system): docking 2 days; MD 3 days per 100 ns, runs 100–2,000 ns, up to 10 in parallel (owner);
+  DFT 2 days (owner); bioinformatics 3–5 days; network pharmacology 3 days; immunoinformatics 5 days; AI/cheminformatics 5–7 days;
+  training on schedule. The ones not marked "owner" are estimates to confirm with the owner.
+- WhatsApp button (.wa, bottom right) on every page: https://wa.me/923092529763
 - Working since 2022, serving researchers worldwide. Trainings are online, for participants in Pakistan.
 - More than 1,000 projects completed for researchers worldwide. We help researchers publish their research papers.
 - 2,000+ students trained ("thousands of students"), 200 interns.

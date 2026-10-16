@@ -609,3 +609,24 @@ html:not(.js) .loader{display:none}
 .solid:not(.light) .btn-line{color:var(--white);border-color:rgba(245,246,248,.4)}
 .solid:not(.light) .btn-line::before{background:var(--white)}
 .solid:not(.light) .btn-line:hover{color:var(--ink);border-color:var(--white)}
+
+/* turnaround */
+.svc-index p small.tt{display:block;margin-top:8px;font-size:14px;color:var(--ink)}
+.svc-index p small.tt b{color:var(--red);font-weight:700}
+.tat{margin-top:clamp(96px,10vw,140px)}
+.tat-list{margin-top:48px;border-top:1px solid var(--ink)}
+.tat-list li{display:grid;grid-template-columns:64px minmax(0,1.1fr) minmax(0,.7fr) minmax(0,1.3fr);gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line)}
+.tat-list .n{font-size:14px;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+.tat-list h3{font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:700}
+.tat-list strong{font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:800;color:var(--ink);letter-spacing:-0.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tat-list p{font-size:15.5px}
+@media (max-width:860px){.tat-list li{grid-template-columns:40px minmax(0,1fr);gap:6px 14px}.tat-list strong,.tat-list p{grid-column:2}}
+
+/* WhatsApp */
+.wa{position:fixed;right:clamp(14px,2.4vw,28px);bottom:clamp(14px,2.4vw,28px);z-index:65;display:inline-flex;align-items:center;gap:12px;padding:0 18px 0 0;height:56px;background:var(--ink);color:var(--white);text-decoration:none;font-size:14.5px;font-weight:600;box-shadow:0 10px 30px rgba(21,22,27,.28);transition:transform .5s var(--ease),background .3s,opacity .4s}
+.wa .wa-i{display:grid;place-items:center;width:56px;height:56px;background:var(--red)}
+.wa svg{width:26px;height:26px}
+.wa:hover{background:var(--red);transform:translateY(-3px)}
+.wa:hover .wa-i{background:var(--red-dark)}
+.menu-open .wa{opacity:0;pointer-events:none}
+@media (max-width:600px){.wa{padding:0}.wa .wa-l{display:none}}
