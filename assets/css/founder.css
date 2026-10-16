@@ -108,15 +108,4 @@ td .mono{white-space:nowrap;font-variant-numeric:tabular-nums}
 .skills dt{font-size:13px;font-weight:600;color:var(--mute);letter-spacing:.04em}
 .skills dd{font-size:15.5px;color:var(--ink);font-weight:500}
 
-/* references */
-.refs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid var(--ink)}
-@media (max-width:900px){.refs{grid-template-columns:minmax(0,1fr)}}
-.refs li{padding:28px 28px 28px 0;display:grid;gap:6px;align-content:start;border-right:1px solid var(--line)}
-.refs li+li{padding-left:28px}
-.refs li:last-child{border-right:0}
-@media (max-width:900px){.refs li,.refs li+li{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}}
-.refs em{font-style:normal;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-.refs b{font-size:18px;font-weight:700;color:var(--ink)}
-.refs span{font-size:15px}
-.refs-note{margin-top:18px;font-size:14px;color:var(--mute)}
 .contact-dir{margin-top:56px;max-width:860px}

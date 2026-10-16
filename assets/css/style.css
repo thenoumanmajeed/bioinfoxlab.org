@@ -549,3 +549,11 @@ html:not(.js) .loader{display:none}
 .kicker,.ch-num,.hero-meta{font-size:13px}
 .how p,.deliver p{font-size:16px}
 .deliver{background:var(--paper);border:0}
+
+/* team portraits */
+.m-photo{position:relative;width:100%;max-width:340px;aspect-ratio:4 / 5;background:var(--paper);overflow:hidden;margin:0 0 14px}
+.m-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.member:hover .m-photo img{transform:scale(1.035)}
+.m-photo::after{content:"";position:absolute;left:0;top:0;width:48px;height:4px;background:var(--red)}
+.m-initials{display:grid;place-items:center}
+.m-initials span{font-size:clamp(3rem,6vw,5rem);font-weight:800;letter-spacing:-0.04em;color:var(--line-2)}

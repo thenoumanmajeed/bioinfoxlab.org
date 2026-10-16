@@ -150,7 +150,7 @@ var form=document.getElementById('brief');if(!form)return;
   function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
   function compose(){
     var svc=val('f-service');
-    var to=svc==='Training and consulting'?'trainings@bioinfoxlab.org':(SIM.indexOf(svc)>-1?'simulation@bioinfoxlab.org':'info@bioinfoxlab.org');
+    var to=svc==='Training and consulting'?'trainings@bioinfoxlab.org':(SIM.indexOf(svc)>-1?'simulations@bioinfoxlab.org':'info@bioinfoxlab.org');
     var subject='Project enquiry: '+svc;
     var body=['Name: '+val('f-name'),'Email: '+val('f-email'),'Service: '+svc,'',val('f-msg')].join('\n');
     return {to:to,subject:subject,body:body};

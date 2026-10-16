@@ -30,7 +30,7 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 | team.html | Founder lead + Shoaib Siddique, Mohsin Raza, Zeeshan Ghani |
 | research.html | 4 featured papers, journals, link to founder.html#publications |
 | contact.html | Email directory + project brief form (opens the visitor's email app; ?service= pre-selects the service) |
-| founder.html | Full profile of the founder: roles, experience, education, awards, 32 publications with search, NCBI records, talks, skills, courses, references |
+| founder.html | Full profile of the founder: roles, experience, education, awards, 32 publications with search, NCBI records, talks, skills, courses |
 | credits.html | Sources and licences for every 3D structure, the graphs and the typeface |
 | 404.html | Not-found page |
 | assets/css/style.css | Shared styles; assets/css/founder.css only for founder.html |
@@ -54,7 +54,7 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - Working since 2022, serving researchers worldwide. Trainings are online, for participants in Pakistan.
 - 2,000+ students trained, 200 interns.
 - Location shown on site: Lahore, Pakistan (brand kit). Owner's office is in Sheikhupura — confirm which to show.
-- Emails: info@bioinfoxlab.org (general), simulation@bioinfoxlab.org (simulation projects),
+- Emails: info@bioinfoxlab.org (general), simulations@bioinfoxlab.org (simulation projects),
   trainings@bioinfoxlab.org (trainings), director@bioinfoxlab.org (founder). Phone/WhatsApp: +92 309 2529763 (only this number).
 - Services, in priority order:
   1. Molecular docking — Docking, virtual screening and interaction analysis
@@ -75,13 +75,13 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - 32 peer-reviewed articles, 143 citations, h-index 8, i10-index 7 (Google Scholar). Best Research Student Award 2024 (University of Okara).
 - Contact: director@bioinfoxlab.org, +92 309 2529763, LinkedIn https://www.linkedin.com/in/thenoumanmajeed/
 - Photo: assets/img/muhammad-nouman-majeed.webp (black suit, maroon tie, background removed).
-- Never publish his passport number, date of birth, home address, or referees' phone numbers/emails.
+- Never publish his passport number, date of birth, home address, or any references/referees (no names, no contact details).
 
 ## Team
 - Shoaib Siddique, PhD — Head of Computational Physics and Materials Science. PhD Physics, National Yunlin University of Science and Technology (YunTech), Taiwan. Photocatalysts, perovskite solar cells, supercapacitor electrodes, SERS. Scholar: https://scholar.google.com/citations?user=LjLHAoMAAAAJ&hl=en
 - Mohsin Raza — Scientific Research Advisor. Doctoral Researcher in Physics, Universitat de Barcelona (from Aug 2026); previously research assistant, Sejong University, South Korea. LinkedIn: https://www.linkedin.com/in/mohsin-raza-researcher/
 - Zeeshan Ghani — Legal Advisor, Advocate High Court.
-- Team members currently show initials; replace with photos when the owner sends them.
+- Photos: assets/img/shoaib-siddique.webp (navy suit, glasses) and assets/img/mohsin-raza.webp (no glasses; source is only 237×254, ask for a larger one). Zeeshan still shows initials until his photo arrives.
 
 ## Trainings
 Latest (shown as the only current offer): **Bioinformatics Training Program, Cohort 3**
