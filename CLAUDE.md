@@ -22,7 +22,7 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 ## Files
 | File | Content |
 |---|---|
-| index.html | Home: loader, fixed WebGL stage, hero, 5 service chapters that morph the scene, MD graph reel, founder, final mark chapter |
+| index.html | Home: logo loader, fixed WebGL stage, hero, 5 service chapters that morph the scene, MD graph reel, responsibility pledge, founder, final mark chapter |
 | about.html | Company story, company facts, figures, About the founder |
 | services.html | 8 service lines as a hover-preview index (rows link to contact.html?service=...), how a project runs, deliverables, MD teaser |
 | molecular-dynamics.html | 23 graphs from a 100 ns GROMACS run (assets/md/), run settings, key numbers |
@@ -32,6 +32,8 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 | contact.html | Email directory + project brief form (opens the visitor's email app; ?service= pre-selects the service) |
 | founder.html | Full profile of the founder: about, awards, 32 publications with search, NCBI records, talks, skills, courses (no degrees, no work history) |
 | credits.html | Sources and licences for every 3D structure, the graphs and the typeface |
+| faq.html | 14 questions and answers (files, turnaround, deliverables, publishing, confidentiality, trainings, SECP) |
+| privacy.html, cookies.html, terms.html, disclaimer.html, refunds.html | Legal pages. terms.html has #responsibility and #copyright. Drafts: the owner and legal advisor should review them |
 | 404.html | Not-found page |
 | assets/css/style.css | Shared styles; assets/css/founder.css only for founder.html |
 | assets/js/main.js | Menu overlay, nav state, Lahore clock, reveals, cursor, magnetic buttons, service peek, MD reel, loader, copy buttons, brief composer, publication search |
@@ -57,6 +59,9 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
   DFT 2 days (owner); bioinformatics 3–5 days; network pharmacology 3 days; immunoinformatics 5 days; AI/cheminformatics 5–7 days;
   training on schedule. The ones not marked "owner" are estimates to confirm with the owner.
 - WhatsApp button (.wa, bottom right) on every page: https://wa.me/923092529763
+- Owner's statement (home pledge, terms, FAQ): "We take full responsibility for every analysis we perform; world-class analysis that
+  can be challenged anywhere." Interpreted on the site as: errors on our side are corrected and rerun at no charge.
+- No cookies, analytics or trackers, so there is no cookie banner. If analytics are ever added, add a consent banner and update cookies.html.
 - Working since 2022, serving researchers worldwide. Trainings are online, for participants in Pakistan.
 - More than 1,000 projects completed for researchers worldwide. We help researchers publish their research papers.
 - 2,000+ students trained ("thousands of students"), 200 interns.

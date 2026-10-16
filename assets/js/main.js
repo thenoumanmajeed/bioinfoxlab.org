@@ -114,8 +114,9 @@ document.documentElement.classList.add('js');
   function done(){if(loader){loader.classList.add('done');setTimeout(function(){loader.remove();},1200);}
     var hero=document.querySelector('[data-intro]');if(hero)hero.classList.add('in');}
   if(loader){
-    var n=loader.querySelector('.loader-n'),v=0,target=0;
-    (function count(){v+=(target-v)*0.12+0.4;if(v>target)v=target;if(n)n.textContent=String(Math.round(v)).padStart(3,'0');if(v<100)requestAnimationFrame(count);else setTimeout(done,180);})();
+    var bar=loader.querySelector('.loader-bar i'),v=0,target=0,t0=performance.now();
+    (function count(){v+=(target-v)*0.1+0.35;if(v>target)v=target;if(bar)bar.style.transform='scaleX('+(v/100)+')';
+      if(v<100||performance.now()-t0<1600)requestAnimationFrame(count);else setTimeout(done,260);})();
     target=72;setTimeout(function(){target=100;},2600);
   }
   if(stage&&window.BioMatter){
