@@ -1,0 +1,36 @@
+# BioInfoX website settings for Apache hosting (cPanel, Hostinger and similar)
+
+# Always use https and www
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.bioinfoxlab.org/$1 [L,R=301]
+
+# Custom error page
+ErrorDocument 404 /404.html
+
+# Serve modern image and manifest types
+AddType image/webp .webp
+AddType application/manifest+json .webmanifest
+
+# Compress text files
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml text/plain
+</IfModule>
+
+# Cache images, styles and scripts
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Keep internal notes private
+<Files "CLAUDE.md">
+  Require all denied
+</Files>
