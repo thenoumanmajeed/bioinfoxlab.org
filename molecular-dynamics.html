@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Molecular dynamics sample output | BioInfoX</title>
-<meta name="description" content="Every graph from a 100 ns GROMACS simulation of a vaccine construct, analysed by BioInfoX: stability, flexibility, solvent exposure, contacts, PCA and free-energy landscapes.">
+<title>GROMACS Molecular Dynamics Simulation Service (100–2,000 ns) | BioInfoX</title>
+<meta name="description" content="GROMACS molecular dynamics simulations from 100 to 2,000 ns, about 3 days per 100 ns, with MM-PBSA/MM-GBSA. See all 23 graphs from a real 100 ns run: RMSD, RMSF, Rg, SASA, hydrogen bonds, DSSP, DCCM, PCA and free-energy landscapes.">
 <link rel="canonical" href="https://bioinfoxlab.org/molecular-dynamics.html">
 <meta name="theme-color" content="#15161B">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BioInfoX">
-<meta property="og:title" content="Molecular dynamics sample output | BioInfoX">
-<meta property="og:description" content="Every graph from a 100 ns GROMACS simulation of a vaccine construct, analysed by BioInfoX: stability, flexibility, solvent exposure, contacts, PCA and free-energy landscapes.">
+<meta property="og:title" content="GROMACS Molecular Dynamics Simulation Service (100–2,000 ns) | BioInfoX">
+<meta property="og:description" content="GROMACS molecular dynamics simulations from 100 to 2,000 ns, about 3 days per 100 ns, with MM-PBSA/MM-GBSA. See all 23 graphs from a real 100 ns run: RMSD, RMSF, Rg, SASA, hydrogen bonds, DSSP, DCCM, PCA and free-energy landscapes.">
 <meta property="og:url" content="https://bioinfoxlab.org/molecular-dynamics.html">
 <meta property="og:image" content="https://bioinfoxlab.org/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -44,6 +45,7 @@
 <rect x="208" y="40" width="6" height="128" rx="3" fill="#FFFFFF"/>
 <text x="238" y="108" font-family="Montserrat" font-weight="800" font-size="80" fill="#FFFFFF">BioInfo<tspan fill="url(#gxN)">X</tspan></text>
 <text x="241" y="146" font-family="Montserrat" font-weight="600" font-size="21" fill="#B9BECB" letter-spacing="3.6">EMPOWERING BIOINFORMATICS</text></svg></a>
+    <nav class="nav-quick" aria-label="Quick links"><a href="services.html">Services</a><a href="molecular-dynamics.html" aria-current="page">MD sample output</a><a href="research.html">Research</a><a href="team.html">Team</a><a href="training.html">Training</a></nav>
     <p class="nav-clock"><i aria-hidden="true"></i><b>Lahore</b> <time data-clock>PKT</time> PKT</p>
     <a class="btn btn-sm nav-cta" href="contact.html">Start a project</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-lines" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
@@ -75,8 +77,9 @@
   <p class="specimen"><b>Adenylate kinase</b> 1,656 heavy atoms moving between the open (PDB 4AKE) and closed (PDB 1AKE) states, from a real transition trajectory.</p>
   <div class="wrap">
     <p class="kicker">Molecular dynamics</p>
-    <h1 data-split>Sample simulation output</h1>
-    <p class="intro" data-reveal>Every graph on this page comes from one BioInfoX run: a 300-residue vaccine construct simulated for 100 ns in GROMACS and analysed with our standard pipeline. A simulation project receives the same set of analyses, as images and xmgrace files, with a written report.</p>
+    <h1 data-split>Molecular dynamics simulation</h1>
+    <p class="intro" data-reveal>GROMACS simulations from 100 ns to 2,000 ns, up to ten in parallel, with about 3 days per 100 ns. Below is every graph from one real BioInfoX run: a 300-residue vaccine construct simulated for 100 ns and analysed with our standard pipeline.</p>
+    <div class="cta-row" data-reveal><a class="btn" href="contact.html?service=Molecular%20dynamics">Request a quote <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn btn-line" href="#graphs">See the 23 graphs</a></div>
   </div>
 </section>
 
@@ -114,6 +117,39 @@
   </div>
 </section>
 
+<section class="section paper md-more" id="protein-ligand">
+  <div class="wrap">
+    <div class="row">
+      <div><p class="kicker">Protein–ligand projects</p></div>
+      <div>
+        <h2 class="h2" data-split>Binding, not just stability</h2>
+        <p class="intro" data-reveal>Most simulation projects are a protein with a drug candidate or phytochemical. On top of the graphs below, protein–ligand projects receive:</p>
+      </div>
+    </div>
+    <ol class="svc-steps" data-reveal style="margin-top:48px">
+      <li><span class="n">01</span><h3>Ligand RMSD</h3><p>Whether the ligand stays in the pocket for the whole run, fitted to the protein backbone.</p></li>
+      <li><span class="n">02</span><h3>Contacts and hydrogen bonds</h3><p>Which residues hold the ligand, and for what fraction of the simulation.</p></li>
+      <li><span class="n">03</span><h3>MM-PBSA and MM-GBSA binding free energy</h3><p>ΔG<sub>bind</sub> split into van der Waals, electrostatic, polar and non-polar solvation terms.</p></li>
+      <li><span class="n">04</span><h3>Per-residue energy decomposition</h3><p>The pocket residues that contribute most to binding.</p></li>
+    </ol>
+  </div>
+</section>
+<section class="section md-more" id="report">
+  <div class="wrap">
+    <div class="row">
+      <div><p class="kicker">The written report</p></div>
+      <div>
+        <h2 class="h2" data-split>Written for your manuscript</h2>
+        <p class="intro" data-reveal>Every project comes with methods and results you can adapt for your paper. These excerpts, lightly shortened, are from the report of the run on this page.</p>
+      </div>
+    </div>
+    <div class="report-x" data-reveal>
+      <figure><figcaption>From the methods</figcaption><blockquote><p>All-atom molecular dynamics was performed with GROMACS 2026.3 using the CHARMM36m force field and the CHARMM-modified TIP3P water model. The protein was placed in a dodecahedral box with a minimum solute–wall distance of 1.2 nm, solvated, and neutralised with 0.15 M NaCl. The system was energy-minimised by steepest descent, then equilibrated for 200 ps in the NVT ensemble and 500 ps in the NPT ensemble with position restraints on the protein heavy atoms. Production dynamics were run for 100 ns in the NPT ensemble at 310 K (V-rescale thermostat) and 1 bar (C-rescale barostat) with a 2 fs time step.</p></blockquote></figure>
+      <figure><figcaption>From the results</figcaption><blockquote><p>The temperature averaged 310.0 K and the density 1024.1 kg/m³ with no systematic drift. Backbone RMSD relative to the equilibrated structure plateaued at 1.222 ± 0.347 nm, and the radius of gyration remained at 2.109 ± 0.132 nm, indicating that the fold neither unfolded nor collapsed. Principal component analysis showed that the first two eigenvectors accounted for 72.0% of the total fluctuation; the free-energy landscape projected onto them displayed a dominant basin with limited conformational spread.</p></blockquote></figure>
+    </div>
+  </div>
+</section>
+<span id="graphs"></span>
 <section class="md-group" id="system" aria-labelledby="system-h">
   <div class="wrap row">
     <div class="md-label">
@@ -313,7 +349,7 @@
         <p>BioInfoX (SMC-Private) Limited. One of the pioneering bioinformatics companies in Pakistan and the first based in Lahore, serving researchers worldwide since 2022.</p>
       </div>
       <div><h3>Explore</h3><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="molecular-dynamics.html">Molecular dynamics</a></li><li><a href="training.html">Training</a></li></ul></div>
-      <div><h3>People</h3><ul><li><a href="team.html">Team</a></li><li><a href="research.html">Research</a></li><li><a href="founder.html">Founder</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3>People</h3><ul><li><a href="team.html">Team</a></li><li><a href="research.html">Research</a></li><li><a href="founder.html">Founder</a></li><li><a href="campus-network.html">Campus network</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h3>Write to us</h3><ul><li><a href="mailto:info@bioinfoxlab.org">info@bioinfoxlab.org</a></li><li><a href="mailto:trainings@bioinfoxlab.org">trainings@bioinfoxlab.org</a></li><li><a href="tel:+923092529763">+92 309 2529763</a></li><li>Lahore, Pakistan</li></ul></div>
     </div>
     <p class="foot-word" aria-hidden="true">Empowering Bioinformatics</p>

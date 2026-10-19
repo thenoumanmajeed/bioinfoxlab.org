@@ -1,0 +1,40 @@
+# BioInfoX (SMC-Private) Limited
+
+> BioInfoX is a computational research company in Lahore, Pakistan: molecular dynamics simulation, molecular docking, DFT and quantum chemistry, bioinformatics, network pharmacology, in silico vaccine design, QSAR and machine learning, and training. One of the pioneering bioinformatics companies in Pakistan and the first based in Lahore. Working since 2022, serving researchers worldwide. Registered with the Securities and Exchange Commission of Pakistan, CUIN 0352412.
+
+## Key facts
+- More than 1,000 projects completed for researchers worldwide.
+- 2,000+ students trained and 200 interns mentored; trainings are online, for participants in Pakistan.
+- Up to ten molecular dynamics simulations run in parallel, from 100 ns to 2,000 ns.
+- Founder and CEO: Muhammad Nouman Majeed, PhD Scholar and bioinformatician; 36 peer-reviewed articles, 200 citations, h-index 10 (Google Scholar).
+- The team's research is published in Scientific Reports, International Immunopharmacology, Molecular Genetics and Genomics, ChemistrySelect, Naunyn-Schmiedeberg's Archives of Pharmacology and other journals.
+- We take full responsibility for every analysis we perform; errors on our side are corrected and rerun at no charge.
+
+## Services and typical turnaround (one standard system)
+- [Molecular dynamics simulation](https://bioinfoxlab.org/molecular-dynamics.html): GROMACS, OpenMM, ACEMD3; AMBER and CHARMM force fields; MM-PBSA and MM-GBSA. About 3 days per 100 ns. Deliverables: trajectories and topologies, graphs as images and xmgrace files, structure snapshots, a trajectory movie and a written report. The page shows all 23 graphs from a real 100 ns run.
+- [Molecular docking and virtual screening](https://bioinfoxlab.org/molecular-docking.html): docking, virtual screening, interaction analysis and ADMET prediction. About 2 days.
+- [DFT and quantum chemistry](https://bioinfoxlab.org/dft-quantum-chemistry.html): ORCA; geometry optimisation, HOMO–LUMO, MEP and reactivity descriptors, for drug molecules and materials. About 2 days per molecule.
+- [Bioinformatics and genomics](https://bioinfoxlab.org/bioinformatics-genomics.html): whole-genome sequencing analysis, NCBI submission, RNA-seq, sequence analysis, protein modelling and primer design. 3–5 days.
+- [Network pharmacology](https://bioinfoxlab.org/network-pharmacology.html): targets, protein–protein interaction networks, GO and KEGG enrichment, Cytoscape figures. About 3 days.
+- [Immunoinformatics and in silico vaccine design](https://bioinfoxlab.org/vaccine-design.html): epitope prediction, multi-epitope vaccine constructs, docking and dynamics. About 5 days.
+- [AI and cheminformatics](https://bioinfoxlab.org/ai-cheminformatics.html): molecular descriptors, QSAR and interpretable machine learning. 5–7 days.
+- [Training](https://bioinfoxlab.org/training.html): live hands-on cohorts and internships on Google Meet.
+- Reviewer revisions: the extra analysis a journal reviewer asks for, written up for the response letter.
+
+## Pages
+- [Home](https://bioinfoxlab.org/)
+- [All services](https://bioinfoxlab.org/services.html)
+- [Research](https://bioinfoxlab.org/research.html)
+- [Founder and publications](https://bioinfoxlab.org/founder.html)
+- [Team](https://bioinfoxlab.org/team.html)
+- [About and SECP registration](https://bioinfoxlab.org/about.html)
+- [FAQ](https://bioinfoxlab.org/faq.html)
+- [Contact and quotes](https://bioinfoxlab.org/contact.html)
+
+## Contact
+- Simulation projects: simulations@bioinfoxlab.org
+- General: info@bioinfoxlab.org
+- Trainings: trainings@bioinfoxlab.org
+- Founder: director@bioinfoxlab.org
+- Phone and WhatsApp: +92 309 2529763
+- Location: Lahore, Punjab, Pakistan

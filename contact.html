@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contact | BioInfoX</title>
-<meta name="description" content="Contact BioInfoX for simulation projects, bioinformatics services and training.">
+<title>Start a Project: Request a Simulation or Bioinformatics Quote | BioInfoX</title>
+<meta name="description" content="Send your PDB structures, FASTA sequences or research brief to BioInfoX for a quote and timeline on GROMACS molecular dynamics, docking, DFT, vaccine design or bioinformatics.">
 <link rel="canonical" href="https://bioinfoxlab.org/contact.html">
 <meta name="theme-color" content="#15161B">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BioInfoX">
-<meta property="og:title" content="Contact | BioInfoX">
-<meta property="og:description" content="Contact BioInfoX for simulation projects, bioinformatics services and training.">
+<meta property="og:title" content="Start a Project: Request a Simulation or Bioinformatics Quote | BioInfoX">
+<meta property="og:description" content="Send your PDB structures, FASTA sequences or research brief to BioInfoX for a quote and timeline on GROMACS molecular dynamics, docking, DFT, vaccine design or bioinformatics.">
 <meta property="og:url" content="https://bioinfoxlab.org/contact.html">
 <meta property="og:image" content="https://bioinfoxlab.org/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -44,6 +45,7 @@
 <rect x="208" y="40" width="6" height="128" rx="3" fill="#FFFFFF"/>
 <text x="238" y="108" font-family="Montserrat" font-weight="800" font-size="80" fill="#FFFFFF">BioInfo<tspan fill="url(#gxN)">X</tspan></text>
 <text x="241" y="146" font-family="Montserrat" font-weight="600" font-size="21" fill="#B9BECB" letter-spacing="3.6">EMPOWERING BIOINFORMATICS</text></svg></a>
+    <nav class="nav-quick" aria-label="Quick links"><a href="services.html">Services</a><a href="molecular-dynamics.html">MD sample output</a><a href="research.html">Research</a><a href="team.html">Team</a><a href="training.html">Training</a></nav>
     <p class="nav-clock"><i aria-hidden="true"></i><b>Lahore</b> <time data-clock>PKT</time> PKT</p>
     <a class="btn btn-sm nav-cta" href="contact.html">Start a project</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-lines" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
@@ -89,18 +91,29 @@
         <li><span>Director</span><a class="v" href="mailto:director@bioinfoxlab.org">director@bioinfoxlab.org</a><button class="copy" type="button" data-copy="director@bioinfoxlab.org">Copy</button></li>
         <li><span>Phone and WhatsApp</span><span class="v">+92 309 2529763</span><button class="copy" type="button" data-copy="+923092529763">Copy</button></li>
         <li><span>Office</span><span class="v">Lahore, Pakistan</span><span></span></li>
-        <li><span>Website</span><span class="v">www.bioinfoxlab.org</span><span></span></li>
+        <li><span>Website</span><a class="v" href="https://bioinfoxlab.org/">bioinfoxlab.org</a><span></span></li>
       </ul>
 
-      <form class="brief" id="brief" novalidate>
-        <h3>Write your brief</h3>
-        <p>Fill this in and send it from your own email app.</p>
+      <form class="brief" id="brief" novalidate data-web3forms-key="">
+        <h3>Send your project brief</h3>
+        <p>Tell us about your system and your deadline. We reply with the scope, the timeline and a quote.</p>
         <div class="row2">
-          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
-          <div class="field"><label for="f-email">Your email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-name">Your name <span aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Your email <span aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-phone">WhatsApp or phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+92, +966, +44 ..."></div>
+          <div class="field">
+            <label for="f-when">Deadline</label>
+            <select id="f-when" name="deadline">
+              <option>As soon as possible (reviewer deadline)</option>
+              <option selected>Within one to two weeks</option>
+              <option>Flexible</option>
+            </select>
+          </div>
         </div>
         <div class="field">
-          <label for="f-service">Service</label>
+          <label for="f-service">Service <span aria-hidden="true">*</span></label>
           <select id="f-service" name="service">
             <option>Molecular docking</option>
             <option>Molecular dynamics</option>
@@ -109,16 +122,18 @@
             <option>Network pharmacology</option>
             <option>Immunoinformatics</option>
             <option>AI and cheminformatics</option>
+            <option>Reviewer revision</option>
             <option>Training and consulting</option>
             <option>Something else</option>
           </select>
         </div>
-        <div class="field"><label for="f-msg">Project details</label><textarea id="f-msg" name="details" placeholder="System, research question, deliverables, deadline"></textarea></div>
+        <div class="field"><label for="f-msg">Project details <span aria-hidden="true">*</span></label><textarea id="f-msg" name="message" required placeholder="System, number of complexes, simulation length or PDB IDs, and what you need from the results"></textarea></div>
+        <input type="checkbox" name="botcheck" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="cta-row">
-          <a class="btn" id="send" href="mailto:simulations@bioinfoxlab.org">Open in email app</a>
-          <button class="btn btn-line" type="button" id="copy-brief">Copy message</button>
+          <button class="btn" type="submit" id="send">Send brief <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+          <button class="btn btn-line" type="button" id="send-wa">Send on WhatsApp</button>
         </div>
-        <p class="form-note">Goes to <b id="to-addr">simulations@bioinfoxlab.org</b>. If your email app does not open, copy the message and send it to that address.</p>
+        <p class="form-note">Structure or sequence files (PDB, SDF, MOL2, FASTA)? Attach them to your email to <b id="to-addr">simulations@bioinfoxlab.org</b> or send them on WhatsApp.</p>
         <p class="status" id="brief-status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -145,7 +160,7 @@
         <p>BioInfoX (SMC-Private) Limited. One of the pioneering bioinformatics companies in Pakistan and the first based in Lahore, serving researchers worldwide since 2022.</p>
       </div>
       <div><h3>Explore</h3><ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="molecular-dynamics.html">Molecular dynamics</a></li><li><a href="training.html">Training</a></li></ul></div>
-      <div><h3>People</h3><ul><li><a href="team.html">Team</a></li><li><a href="research.html">Research</a></li><li><a href="founder.html">Founder</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3>People</h3><ul><li><a href="team.html">Team</a></li><li><a href="research.html">Research</a></li><li><a href="founder.html">Founder</a></li><li><a href="campus-network.html">Campus network</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h3>Write to us</h3><ul><li><a href="mailto:info@bioinfoxlab.org">info@bioinfoxlab.org</a></li><li><a href="mailto:trainings@bioinfoxlab.org">trainings@bioinfoxlab.org</a></li><li><a href="tel:+923092529763">+92 309 2529763</a></li><li>Lahore, Pakistan</li></ul></div>
     </div>
     <p class="foot-word" aria-hidden="true">Empowering Bioinformatics</p>

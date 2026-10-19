@@ -1,5 +1,13 @@
 document.documentElement.classList.add('js');
 
+/* date-driven text: [data-phases] and [data-phases-href] switch on the dates given, so deadlines never look stale */
+(function(){
+  var now=Date.now();
+  function pick(list){var out=null;list.forEach(function(p){if(Date.parse(p.from)<=now)out=p;});return out;}
+  [].forEach.call(document.querySelectorAll('[data-phases]'),function(el){try{var p=pick(JSON.parse(el.getAttribute('data-phases')));if(p)el.innerHTML=p.html;}catch(e){}});
+  [].forEach.call(document.querySelectorAll('[data-phases-href]'),function(el){try{var p=pick(JSON.parse(el.getAttribute('data-phases-href')));if(p){el.setAttribute('href',p.href);if(p.href.indexOf('mailto:')===0){el.removeAttribute('target');}}}catch(e){}});
+})();
+
 /* site motion: menu, nav state, Lahore clock, reveals, cursor, magnetic buttons, the live scene */
 (function(){
   var root=document.documentElement,body=document.body;
@@ -147,25 +155,44 @@ document.documentElement.classList.add('js');
   });
 })();
 
-/* project brief composer (contact page) */
+/* project brief (contact page): direct submit when a Web3Forms key is set, otherwise the visitor's email app; WhatsApp alongside */
 (function(){
-var form=document.getElementById('brief');if(!form)return;
-  var SIM=['Molecular docking','Molecular dynamics','DFT and quantum chemistry'];
+  var form=document.getElementById('brief');if(!form)return;
+  var SIM=['Molecular docking','Molecular dynamics','DFT and quantum chemistry','Reviewer revision'];
+  var st=document.getElementById('brief-status'),send=document.getElementById('send');
   function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
-  function compose(){
-    var svc=val('f-service');
-    var to=svc==='Training and consulting'?'trainings@bioinfoxlab.org':(SIM.indexOf(svc)>-1?'simulations@bioinfoxlab.org':'info@bioinfoxlab.org');
-    var subject='Project enquiry: '+svc;
-    var body=['Name: '+val('f-name'),'Email: '+val('f-email'),'Service: '+svc,'',val('f-msg')].join('\n');
-    return {to:to,subject:subject,body:body};
+  function route(svc){return svc==='Training and consulting'?'trainings@bioinfoxlab.org':(SIM.indexOf(svc)>-1?'simulations@bioinfoxlab.org':'info@bioinfoxlab.org');}
+  function brief(){var svc=val('f-service');return {to:route(svc),svc:svc,subject:'Project brief: '+svc,
+    text:['Name: '+val('f-name'),'Email: '+val('f-email'),'WhatsApp/phone: '+(val('f-phone')||'not given'),'Service: '+svc,'Deadline: '+val('f-when'),'',val('f-msg')].join('\n')};}
+  function update(){document.getElementById('to-addr').textContent=route(val('f-service'));}
+  form.addEventListener('change',update);update();
+  function check(){
+    var bad=[];[['f-name','your name'],['f-email','your email'],['f-msg','the project details']].forEach(function(f){
+      var el=document.getElementById(f[0]),ok=el.value.trim()&&(f[0]!=='f-email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()));
+      el.setAttribute('aria-invalid',ok?'false':'true');if(!ok)bad.push(f[1]);});
+    if(bad.length){st.className='status err';st.textContent='Please add '+bad.join(', ')+'.';var first=form.querySelector('[aria-invalid="true"]');if(first)first.focus();return false;}
+    return true;
   }
-  function update(){var m=compose();document.getElementById('send').setAttribute('href','mailto:'+m.to+'?subject='+encodeURIComponent(m.subject)+'&body='+encodeURIComponent(m.body));document.getElementById('to-addr').textContent=m.to;}
-  form.addEventListener('input',update);form.addEventListener('change',update);form.addEventListener('submit',function(e){e.preventDefault();});update();
-  var st=document.getElementById('brief-status');
-  document.getElementById('copy-brief').addEventListener('click',function(){
-    var m=compose();copyText('To: '+m.to+'\nSubject: '+m.subject+'\n\n'+m.body).then(function(){st.textContent='Message copied. Paste it into an email to '+m.to+'.';},function(){var ta=document.getElementById('f-msg');ta.focus();ta.select();st.textContent='Copying is blocked here. Send your details to '+m.to+'.';});
+  function viaEmail(b){window.location.href='mailto:'+b.to+'?subject='+encodeURIComponent(b.subject)+'&body='+encodeURIComponent(b.text);
+    st.className='status ok';st.textContent='Your email app has opened with the brief, addressed to '+b.to+'. Press send there, or use WhatsApp.';}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();if(!check())return;
+    var b=brief(),key=form.getAttribute('data-web3forms-key');
+    if(window.gtag)window.gtag('event','generate_lead',{method:'contact_form',service:b.svc});
+    if(!key){viaEmail(b);return;}
+    send.disabled=true;st.className='status';st.textContent='Sending your brief...';
+    var fd=new FormData(form);fd.append('access_key',key);fd.append('subject',b.subject);fd.append('from_name','BioInfoX website');fd.append('replyto',val('f-email'));
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.success,j:j};});})
+      .then(function(res){if(res.ok){st.className='status ok';st.textContent='Thank you. Your brief has reached '+b.to+'; we will reply with the scope, timeline and quote. Send any structure files by email or WhatsApp.';form.reset();update();}else{viaEmail(b);}})
+      .catch(function(){viaEmail(b);})
+      .then(function(){send.disabled=false;});
   });
-
+  document.getElementById('send-wa').addEventListener('click',function(){
+    if(!check())return;var b=brief();
+    if(window.gtag)window.gtag('event','generate_lead',{method:'whatsapp_form',service:b.svc});
+    window.open('https://wa.me/923092529763?text='+encodeURIComponent('Hello BioInfoX, here is my project brief.\n\n'+b.text),'_blank','noopener');
+  });
 })();
 
 /* publication search (founder page) */
@@ -190,4 +217,15 @@ var q=document.getElementById('pub-q');if(!q)return;
   var sel=document.getElementById('f-service');if(!sel)return;
   var want=new URLSearchParams(location.search).get('service');if(!want)return;
   [].forEach.call(sel.options,function(o){if(o.text===want){sel.value=o.value;sel.dispatchEvent(new Event('change',{bubbles:true}));}});
+})();
+
+/* lead events for the site's Google Analytics tag: WhatsApp, email and phone clicks */
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');if(!a||!window.gtag)return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('wa.me')>-1)window.gtag('event','whatsapp_lead_click',{link_url:h.split('?')[0],page_path:location.pathname});
+    else if(h.indexOf('mailto:')===0)window.gtag('event','email_lead_click',{email:h.slice(7).split('?')[0],page_path:location.pathname});
+    else if(h.indexOf('tel:')===0)window.gtag('event','phone_lead_click',{page_path:location.pathname});
+  });
 })();

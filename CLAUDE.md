@@ -24,12 +24,14 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 |---|---|
 | index.html | Home: logo loader, fixed WebGL stage, hero, 5 service chapters that morph the scene, MD graph reel, responsibility pledge, founder, final mark chapter |
 | about.html | Company story, company facts, figures, About the founder |
-| services.html | 8 service lines as a hover-preview index (rows link to contact.html?service=...), how a project runs, deliverables, MD teaser |
-| molecular-dynamics.html | 23 graphs from a 100 ns GROMACS run (assets/md/), run settings, key numbers |
+| services.html | 8 service lines as a hover-preview index (rows link to each service page), turnaround list, how a project runs, reviewer-revision band |
+| molecular-docking.html, dft-quantum-chemistry.html, bioinformatics-genomics.html, network-pharmacology.html, vaccine-design.html, ai-cheminformatics.html | One page per service: steps, deliverables, turnaround, tools (only tools named elsewhere on the site), who works on it, Service JSON-LD |
+| molecular-dynamics.html | MD service page: protein–ligand/MM-PBSA deliverables, report excerpts (from the real report), 23 graphs from a 100 ns GROMACS run |
 | training.html | Figures, latest training (Cohort 3), previous trainings |
-| team.html | Dark roster with hover portraits, then a large profile per person (founder, Shoaib Siddique, Mohsin Raza, Zeeshan Ghani), figures band |
+| team.html | At a glance, founder, 7 experts, legal advisor, campus-network band (all bios in 3rd person; photos in assets/img/team/) |
+| campus-network.html | The 26 independent sales representatives as compact cards (moved off team.html) |
 | research.html | 4 featured papers, journals, link to founder.html#publications |
-| contact.html | Email directory + project brief form (opens the visitor's email app; ?service= pre-selects the service) |
+| contact.html | Email directory + project brief form: direct submit via Web3Forms once data-web3forms-key is filled in, otherwise the email app; WhatsApp send; ?service= pre-selects |
 | founder.html | Full profile of the founder: about, awards, 32 publications with search, NCBI records, talks, skills, courses (no degrees, no work history) |
 | credits.html | Sources and licences for every 3D structure, the graphs and the typeface |
 | faq.html | 14 questions and answers (files, turnaround, deliverables, publishing, confidentiality, trainings, SECP) |
@@ -46,7 +48,10 @@ Owner: Muhammad Nouman Majeed. Plain HTML/CSS/JS, no build step, no framework.
 | favicon.ico, site.webmanifest, robots.txt, sitemap.xml, .htaccess, _config.yml | Launch files. .htaccess forces https://www and sets the 404 page (Hostinger only) |
 | README.txt | Plain-language upload instructions (cPanel/Hostinger, Netlify, GitHub Pages) |
 
-Nav (with the full-screen menu), footer and <head> are repeated in every page: change them in **all** HTML files.
+Nav (quick links on desktop >1100px + full-screen menu), footer and <head> are repeated in every page: change them in **all** HTML files.
+Never embed images as base64 in HTML (it made team.html 1 MB); save them as files in assets/img/.
+Canonical domain is https://bioinfoxlab.org/ (no www). robots.txt allows search and AI crawlers; llms.txt summarises the company.
+Training text uses data-phases / data-phases-href (main.js) to switch after the registration deadline and after the cohort ends.
 Inner pages have a dark `.page-head` with `<canvas class="matter" data-matter="protein|gold|dna|network|vesicle|mark">` and a `.specimen` caption.
 Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2d (empty), 11_clusters (0–0.1 ns axis), 09_pca_residue_contribution (stray line).
 
@@ -91,7 +96,8 @@ Three MD graphs are kept but not shown because they are flawed: 05_rmsd_matrix_2
 - **Do not list his degrees or work experience anywhere** (no M.Sc./B.Sc., no Gold Medal for a degree, no past jobs).
 - He has **left** MBBL Lab (University of Central Punjab) and The University of Lahore: never show them as his affiliations.
   Event venues in his talks list and the MBBL strain names of his NCBI genomes are fine.
-- 32 peer-reviewed articles, 143 citations, h-index 8, i10-index 7 (Google Scholar). Best Research Student Award 2024 (University of Okara).
+- 36 peer-reviewed articles, 200 citations, h-index 10, i10-index 7 (Google Scholar, owner update 18 Oct 2026); the site lists 32 of them. Best Research Student Award 2024 (University of Okara).
+- Publications #26 and #27 lack journal names and #15 truncates before his name: ask the owner for the details.
 - Contact: director@bioinfoxlab.org, +92 309 2529763, LinkedIn https://www.linkedin.com/in/thenoumanmajeed/
 - Photo: assets/img/muhammad-nouman-majeed.webp (black suit, maroon tie, background removed).
 - Never publish his passport number, date of birth, home address, or any references/referees (no names, no contact details).
