@@ -1,0 +1,140 @@
+[
+  {
+    "name": "01_electronic_gas",
+    "description": "Gas-phase electronic energy, orbitals, charges, bond orders, dipole and polarizability",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "02_cation_vertical",
+    "description": "Vertical ionization, radical cation and Fukui inputs",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "03_anion_vertical",
+    "description": "Vertical electron attachment and Fukui inputs; check whether anion is bound",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "04_uvvis_gas",
+    "description": "40 singlet vertical TD-DFT excitations in gas phase",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "05_raman_gas",
+    "description": "Analytic harmonic IR, Raman activities and polarizability",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "06_nmr_gas",
+    "description": "Gas-phase GIAO nuclear shielding tensors; shifts relative to computed TMS",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "07_tms_opt",
+    "description": "Optimize TMS NMR reference",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "08_tms_nmr",
+    "description": "Matched-level TMS reference shielding",
+    "source": "07_tms_opt",
+    "status": "completed"
+  },
+  {
+    "name": "09_water_optfreq",
+    "description": "Neutral molecule geometry, IR and thermochemistry in implicit water; not a pH model",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "10_electronic_water",
+    "description": "Water-relaxed orbitals, charges, dipole and polarizability",
+    "source": "09_water_optfreq",
+    "status": "completed"
+  },
+  {
+    "name": "11_uvvis_water",
+    "description": "40 singlet TD-DFT excitations in implicit water",
+    "source": "09_water_optfreq",
+    "status": "completed"
+  },
+  {
+    "name": "12_cation_adiabatic",
+    "description": "Diffuse-basis r2SCAN-D4 relaxed charged/spin geometry; hybrid energy refinement follows",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "13_anion_adiabatic",
+    "description": "Diffuse-basis r2SCAN-D4 relaxed charged/spin geometry; hybrid energy refinement follows",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "14_triplet_relaxed",
+    "description": "Diffuse-basis r2SCAN-D4 relaxed charged/spin geometry; hybrid energy refinement follows",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "21_cation_refined",
+    "source": "12_cation_adiabatic",
+    "status": "completed",
+    "description": "Hybrid-DFT electronic energy at relaxed r2SCAN-D4/ma-def2-TZVP charged/spin geometry; no ionic frequency correction"
+  },
+  {
+    "name": "22_anion_refined",
+    "source": "13_anion_adiabatic",
+    "status": "completed",
+    "description": "Hybrid-DFT electronic energy at relaxed r2SCAN-D4/ma-def2-TZVP charged/spin geometry; no ionic frequency correction"
+  },
+  {
+    "name": "23_triplet_refined",
+    "source": "14_triplet_relaxed",
+    "status": "completed",
+    "description": "Hybrid-DFT electronic energy at relaxed r2SCAN-D4/ma-def2-TZVP charged/spin geometry; no ionic frequency correction"
+  },
+  {
+    "name": "15_conformer_120_0",
+    "description": "Local optimization and frequency check from carboxyl rotations 120/0 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "16_conformer_240_0",
+    "description": "Local optimization and frequency check from carboxyl rotations 240/0 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "17_conformer_0_120",
+    "description": "Local optimization and frequency check from carboxyl rotations 0/120 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "18_conformer_0_240",
+    "description": "Local optimization and frequency check from carboxyl rotations 0/240 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "19_conformer_120_120",
+    "description": "Local optimization and frequency check from carboxyl rotations 120/120 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  },
+  {
+    "name": "20_conformer_240_240",
+    "description": "Local optimization and frequency check from carboxyl rotations 240/240 degrees; finite sampling",
+    "source": null,
+    "status": "completed"
+  }
+]
