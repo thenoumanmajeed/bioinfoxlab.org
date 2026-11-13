@@ -1,0 +1,8 @@
+property,gas,water
+Temperature_K,298.15,298.15
+Pressure_atm,1.0,1.0
+Zero_point_energy_Eh,0.15775174,0.15729367
+Entropy_term_TS_Eh,0.0497369,0.04989241
+Electronic_energy_Eh,-648.606056483696,-648.627703243241
+Enthalpy_Eh,-648.4358765,-648.45797665
+Gibbs_energy_Eh,-648.48561341,-648.50786906

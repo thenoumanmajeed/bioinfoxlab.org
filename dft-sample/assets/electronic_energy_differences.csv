@@ -1,0 +1,4 @@
+property,eV,interpretation
+relaxed_cation_IP_eV,8.891257881958843,"Electronic estimates at local optimized geometries, not Gibbs energies or guaranteed global spin-state gaps. Neutral geometry is r2SCAN-3c; charged/triplet geometries are r2SCAN-D4/ma-def2-TZVP; all reported energy differences use wB97X-D3/def2-TZVPD."
+relaxed_anion_EA_eV,-0.8864173387268307,"Electronic estimates at local optimized geometries, not Gibbs energies or guaranteed global spin-state gaps. Neutral geometry is r2SCAN-3c; charged/triplet geometries are r2SCAN-D4/ma-def2-TZVP; all reported energy differences use wB97X-D3/def2-TZVPD."
+relaxed_triplet_relative_energy_eV,3.813651531831106,"Electronic estimates at local optimized geometries, not Gibbs energies or guaranteed global spin-state gaps. Neutral geometry is r2SCAN-3c; charged/triplet geometries are r2SCAN-D4/ma-def2-TZVP; all reported energy differences use wB97X-D3/def2-TZVPD."

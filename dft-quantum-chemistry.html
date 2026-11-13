@@ -87,6 +87,23 @@
     </div>
   </div>
 </section>
+<section class="section paper" id="sample-output">
+  <div class="wrap">
+    <div class="row" style="margin-bottom:32px">
+      <div><p class="kicker">Sample output · CID 75791</p></div>
+      <div>
+        <h2 class="h2" data-split>Explore a completed molecular study.</h2>
+        <p class="intro" data-reveal>Inspect the optimised structure, HOMO and LUMO, electrostatic potential, IR and Raman modes, UV–visible transitions, NMR predictions and conformer comparisons in an interactive report for C<sub>9</sub>H<sub>8</sub>O<sub>4</sub>.</p>
+        <p data-reveal>Download the figures, CSV tables, methods, references and source calculation records. These are method-specific computed predictions; the report explains the checks, assumptions and limits of each analysis.</p>
+        <div class="cta-row" data-reveal style="margin-top:28px">
+          <a class="btn" href="dft-sample/">Open the interactive DFT sample</a>
+          <a class="btn btn-line" href="dft-sample/discussion.html">Read the results and discussion</a>
+        </div>
+        <p style="margin-top:20px"><a href="dft-sample/assets/study-data.zip" download>Download the full study data and calculation records (ZIP)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section">
   <div class="wrap">
     <div class="row" style="margin-bottom:48px">
@@ -116,8 +133,8 @@
     </div>
     <dl class="faq">
       <div class="faq-item" data-reveal><dt>What do I need to send?</dt><dd>The structure of each molecule as a MOL, SDF, XYZ or SMILES file (or its name), the properties you need and, if you have one, the method or basis set your field or a reference paper uses. We agree the level of theory with you before the calculation starts.</dd></div>
-      <div class="faq-item" data-reveal><dt>What does the HOMO–LUMO gap tell me?</dt><dd>The energy gap between the highest occupied and lowest unoccupied molecular orbitals indicates how easily a molecule can be excited or react: a small gap usually means higher reactivity and lower kinetic stability. From the same orbital energies we derive descriptors such as chemical hardness, softness, electronegativity and the electrophilicity index.</dd></div>
-      <div class="faq-item" data-reveal><dt>What is an MEP map used for?</dt><dd>A molecular electrostatic potential map colours the molecular surface by charge, showing the electron-rich and electron-poor regions where a molecule is likely to interact with a protein, a solvent or another molecule. It pairs naturally with <a href="molecular-docking.html">docking</a> results.</dd></div>
+      <div class="faq-item" data-reveal><dt>What does the HOMO–LUMO gap tell me?</dt><dd>The difference between the highest occupied and lowest unoccupied orbital energies is a method-dependent electronic descriptor. It is not an optical excitation energy or a reaction barrier, and alone does not establish reactivity or stability. We distinguish orbital estimates from total-energy ionisation and electron-affinity calculations and state the assumptions behind any derived descriptors. <a href="dft-sample/">See the worked sample and its limitations</a>.</dd></div>
+      <div class="faq-item" data-reveal><dt>What is an MEP map used for?</dt><dd>A molecular electrostatic potential map colours a chosen molecular surface by electrostatic potential, highlighting relatively positive and negative regions. It can help interpret possible electrostatic interactions with a protein, solvent or another molecule; it does not by itself establish binding or reactivity. It pairs naturally with <a href="molecular-docking.html">docking</a> results.</dd></div>
       <div class="faq-item" data-reveal><dt>Do you work on materials as well as drug molecules?</dt><dd>Yes. Our computational physics and materials team works on photocatalysts, perovskite solar cells, supercapacitor electrodes and SERS systems alongside drug molecules. See <a href="team.html#shoaib">who leads that work</a>.</dd></div>
     </dl>
   </div>
